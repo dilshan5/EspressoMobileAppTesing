@@ -132,6 +132,37 @@ public class AuthenticationActivityTest {
     }
 
     @Test
+    public void userNamePasswordAreEmpty() throws Exception{
+        //Clear both text fields
+        onView(withId(R.id.edt_username)).perform(clearText(), closeSoftKeyboard());
+        onView(withId(R.id.edt_password)).perform(clearText(), closeSoftKeyboard());
+        onView(withId(R.id.btn_login)).perform(click());
+
+        //Check the toast message
+        Thread.sleep(1500);
+        onView(allOf(withId(0x7f0800ae), withText("Login failed")))
+                .check(matches(withText("Login failed")));
+
+        Log.e("@Test", "Performing empty username password test");
+    }
+
+    @Test
+    public void verifyResetData(){
+        //Finds the view
+        //Click on clear icon
+        //Validates clear text
+        throw new RuntimeException("There are no any clear buttons");
+    }
+
+    @Test
+    public void verifyForgotPasswordlink() throws Exception{
+        //Finds the view
+        //Take user input
+        //validate the results
+        throw new RuntimeException("Forgot Password link is not available");
+    }
+
+    @Test
     public void loginFailed() throws Exception {
         //Type invalid userName and password  and click on login  button.
         onView(withId(R.id.edt_username))
